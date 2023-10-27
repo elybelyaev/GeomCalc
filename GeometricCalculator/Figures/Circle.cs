@@ -4,9 +4,9 @@ namespace GeometricCalculator.Figures;
 
 public class Circle : IWithArea
 {
-    private readonly Lenght _radius;
+    private readonly Length _radius;
 
-    public Circle(Lenght radius)
+    public Circle(Length radius)
     {
         _radius = radius;
     }
