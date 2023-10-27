@@ -11,5 +11,13 @@ public class Circle : IWithArea
         _radius = radius;
     }
 
-    public double CalculateArea() => Math.PI * _radius * _radius;
+    public double CalculateArea()
+    {
+        var area = Math.PI * _radius * _radius;
+
+        if (double.IsPositiveInfinity(area))
+            throw new Exception("The resulting area is too large");
+
+        return area;
+    }
 }

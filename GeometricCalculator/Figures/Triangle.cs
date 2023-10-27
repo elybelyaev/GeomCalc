@@ -29,7 +29,7 @@ public class Triangle : IWithArea
                          * (semiPerimeter - _sideC));
     }
 
-    public bool IsTriangleRight(double eps = 0.001)
+    public bool IsTriangleRight(double precision = 0.001)
     {
         var sumOfSideSquares = Math.Pow(_sideA, 2)
                                     + Math.Pow(_sideB, 2)
@@ -37,13 +37,13 @@ public class Triangle : IWithArea
         
         var maxSideSquare = Math.Pow(MaxSideLength, 2);
 
-        return Math.Abs(2 * maxSideSquare - sumOfSideSquares) < eps;
+        return Math.Abs(2 * maxSideSquare - sumOfSideSquares) < precision;
     }
 
     private void CheckIsTriangleValid()
     {
-        if (2 * MaxSideLength > Perimeter)
+        if (2 * MaxSideLength >= Perimeter)
             throw new ArgumentException(
-                $"Triangle is not valid: Side with lenght {MaxSideLength} is greater than the sum of the other two sides");
+                $"Triangle is not valid: Side with lenght {(double) MaxSideLength} is greater or equal than the sum of the other two sides");
     }
 }
